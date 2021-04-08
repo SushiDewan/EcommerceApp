@@ -14,6 +14,7 @@ class TxtField extends StatelessWidget {
   final int maxLength;
   final int maxLines;
   final int minLines;
+  final TextEditingController txtEditingController;
 
   const TxtField({
     Key key,
@@ -30,6 +31,7 @@ class TxtField extends StatelessWidget {
     this.maxLength,
     this.maxLines,
     this.minLines,
+    this.txtEditingController
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -37,6 +39,7 @@ class TxtField extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
      
       child: TextFormField(
+        controller: txtEditingController,
         style: TextStyle(
           color: Theme.of(context).primaryColor
         ),
@@ -52,7 +55,7 @@ class TxtField extends StatelessWidget {
           hintText: hintText,
           isDense: true,
           hintStyle: TextStyle(
-            fontSize: 20,
+            fontSize: 15,
           ),
           border: InputBorder.none,
           filled: true,
