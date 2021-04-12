@@ -16,32 +16,32 @@ class TxtField extends StatelessWidget {
   final int minLines;
   final TextEditingController txtEditingController;
 
-  const TxtField({
-    Key key,
-    @required this.hintText,
-    this.onSaved,
-    this.leading,
-    this.trailing,
-    this.onChanged,
-    this.validator,
-    this.keyboardType,
-    this.obscureText = false,
-    this.focusNode,
-    this.autoCapatalize = false,
-    this.maxLength,
-    this.maxLines,
-    this.minLines,
-    this.txtEditingController
-  }) : super(key: key);
+  const TxtField(
+      {Key key,
+      @required this.hintText,
+      this.onSaved,
+      this.leading,
+      this.trailing,
+      this.onChanged,
+      this.validator,
+      this.keyboardType,
+      this.obscureText = false,
+      this.focusNode,
+      this.autoCapatalize = false,
+      this.maxLength,
+      this.maxLines,
+      this.minLines,
+      this.txtEditingController})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-     
+      borderRadius: BorderRadius.circular(20),
       child: TextFormField(
         controller: txtEditingController,
+        textAlignVertical: TextAlignVertical.center,
         style: TextStyle(
-          color: Theme.of(context).primaryColor
+          color: Theme.of(context).primaryColor,
         ),
         decoration: InputDecoration(
           prefixIcon: Icon(
@@ -61,11 +61,10 @@ class TxtField extends StatelessWidget {
           filled: true,
         ),
         obscureText: obscureText,
-        validator: validator ??
-            (value) => value.isEmpty ? "$hintText must not be empty." : null,
+        validator: validator ?? (value) => value.isEmpty ? "$hintText must not be empty." : null,
         onSaved: onSaved,
         onChanged: onChanged,
-        ),
+      ),
     );
   }
 }
